@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -44,7 +45,7 @@ export default function Home() {
           value={query}
           onChange={handleQuery}
         />
-
+        <Link href="/images/lorem-123">Lorem 123</Link>
         {error}
       </div>
     </main>
