@@ -1,0 +1,20 @@
+.logoText {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.searchBar {
+  max-width: var(--max-width);
+  margin: 10px auto 20px auto;
+}
+
+.searchInput {
+  border: solid 3px #e64d3d;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(249, 250, 251);
+  display: block;
+  width: 100%;
+}

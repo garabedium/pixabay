@@ -1,8 +1,9 @@
 "use client";
 
-import { homeHeader } from "./utils/constants.util";
+import { homeHeader, searchLabel } from "./utils/constants.util";
 import useApiPixabayImagesByQuery from "./hooks/useApiPixabayImagesQuery";
 import ImageGrid from "./components/ImageGrid";
+import styles from "@/styles/Home.module.css";
 
 export default function Home() {
   const { 
@@ -14,19 +15,25 @@ export default function Home() {
 
   return (
     <main>
-      <div>
-        <h1>{homeHeader}</h1>
+
+      <h1 className={styles.logoText}>{homeHeader}</h1>
+      <form className={styles.searchBar} name="pixabay-image-search">
         <input
           autoFocus
           type="search"
           value={imageQuery}
           onChange={handleImageQuery}
+          placeholder={searchLabel}
+          aria-label={searchLabel}
+          name="search-images"
+          className={styles.searchInput}
         />
+      </form>
 
-        <ImageGrid images={imageResults} />
+      <ImageGrid images={imageResults} />
 
-        {imageError}
-      </div>
+      {imageError}
+
     </main>
   )
 }
