@@ -13,7 +13,8 @@ export default function ImageGrid(props: ImageGridProps) {
       href={{
         pathname: `/images/${image.id}`,
         query: {
-          web_image: image.webformatURL
+          imageWeb: image.webformatURL,
+          imageTags: image.tags
         }        
       }}>
         <Image 
