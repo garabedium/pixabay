@@ -1,7 +1,13 @@
 .imageGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: repeat(2, minmax(50%, auto));
   grid-gap: 10px;
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+  .imageGrid {
+    grid-template-columns: repeat(4, minmax(25%, auto));
+  }
 }

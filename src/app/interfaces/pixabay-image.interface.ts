@@ -34,8 +34,6 @@ export interface PixabayImagesApi extends BasePixabayApi {
 
 export interface PixabayImagePageProps {
   params: {
-    params: {
-      imageSlug: string
-    }
+    imageId: string,
   }
 }
