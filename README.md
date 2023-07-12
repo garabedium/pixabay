@@ -16,11 +16,12 @@ You will have 3 hours to complete this challenge, and we ask that you complete i
 - [X] UI: detail view
     -- Link from index to detail
     -- Test
-- Search
-- ENV var / API route
+- [X] Search
+- [ ] ENV var / API route
 - UI / logo
-- Cleanup
-    [ ] Favicon
+- Cleanup / Refactor
+    [X] Custom Hook
+    [ ] Debounce change event
 
 
 ## Getting Started
