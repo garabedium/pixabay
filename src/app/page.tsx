@@ -2,7 +2,9 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { homeHeader } from "./utils/constants.util";
+import { PixabayImage } from "./interfaces/pixabay-image.interface";
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -10,7 +12,7 @@ export default function Home() {
   const [error, setError] = useState('');
 
   const apiBase = "https://pixabay.com/api/?";
-  const apiKey = "key={TODO:REPLACE_WITH_ENV_VAR}";
+  const apiKey = "key=38176596-baeb4d9b88920483b6400bb56";
 
   const queryApi = useCallback(async() => {
     const apiUrl = `${apiBase}${apiKey}&q=${query}`;
@@ -36,6 +38,30 @@ export default function Home() {
     }
   }, [query, queryApi]);
 
+  const getImageSlug = (pageUrl: string) => {
+    // Todo: replace with constants
+    // Validate the base url
+    // use image id as fallback
+    return pageUrl.replace('https://pixabay.com/photos/','').replace('/','');
+  }
+
+  const imageResults = results.map((image: PixabayImage) => (
+      <Link 
+      key={image.id}
+      href={{
+        pathname: `/images/${getImageSlug(image.pageURL)}`
+      }}>
+        <Image 
+          src={image.previewURL}
+          key={image.id}
+          alt={image.tags}
+          width={image.previewWidth}
+          height={image.previewHeight}
+        />
+      </Link>
+    )
+  )
+
   return (
     <main>
       <div>
@@ -46,14 +72,18 @@ export default function Home() {
           value={query}
           onChange={handleQuery}
         />
-        <Link 
+
+        <div id="results">
+          {imageResults}
+        </div>
+        {/* <Link 
           href={{
             pathname: '/images/lorem',
             query: {
               test: 'lorem_ipsum'
             }
           }}
-        >Lorem 123</Link>
+        >Lorem 123</Link> */}
         {error}
       </div>
     </main>
