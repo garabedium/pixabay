@@ -1,10 +1,8 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { homeHeader } from "./utils/constants.util";
-import { PixabayImage } from "./interfaces/pixabay-image.interface";
+import ImageGrid from "./components/ImageGrid";
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -38,30 +36,6 @@ export default function Home() {
     }
   }, [query, queryApi]);
 
-  const getImageSlug = (pageUrl: string) => {
-    // Todo: replace with constants
-    // Validate the base url
-    // use image id as fallback
-    return pageUrl.replace('https://pixabay.com/photos/','').replace('/','');
-  }
-
-  const imageResults = results.map((image: PixabayImage) => (
-      <Link 
-      key={image.id}
-      href={{
-        pathname: `/images/${getImageSlug(image.pageURL)}`
-      }}>
-        <Image 
-          src={image.previewURL}
-          key={image.id}
-          alt={image.tags}
-          width={image.previewWidth}
-          height={image.previewHeight}
-        />
-      </Link>
-    )
-  )
-
   return (
     <main>
       <div>
@@ -73,17 +47,8 @@ export default function Home() {
           onChange={handleQuery}
         />
 
-        <div id="results">
-          {imageResults}
-        </div>
-        {/* <Link 
-          href={{
-            pathname: '/images/lorem',
-            query: {
-              test: 'lorem_ipsum'
-            }
-          }}
-        >Lorem 123</Link> */}
+        <ImageGrid images={results} />
+
         {error}
       </div>
     </main>
