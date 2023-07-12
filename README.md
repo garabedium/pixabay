@@ -12,11 +12,12 @@ You will have 3 hours to complete this challenge, and we ask that you complete i
 ## Project Plan
 - [X] Install Next + UI Library
 - [X] UI: index view
-- [ ] Data: create simple API poc
-- UI: detail view
+- [X] Data: create simple API poc
+- [ ] UI: detail view
     -- Link from index to detail
     -- Test
 - Search
+- ENV var / API route
 - UI / logo
 - Cleanup
     [ ] Favicon
