@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
+import { homeHeader } from "./utils/constants.util";
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -38,14 +39,21 @@ export default function Home() {
   return (
     <main>
       <div>
-        <h1>Pixabay Image Search</h1>
+        <h1>{homeHeader}</h1>
         <input
           autoFocus
           type="search"
           value={query}
           onChange={handleQuery}
         />
-        <Link href="/images/lorem-123">Lorem 123</Link>
+        <Link 
+          href={{
+            pathname: '/images/lorem',
+            query: {
+              test: 'lorem_ipsum'
+            }
+          }}
+        >Lorem 123</Link>
         {error}
       </div>
     </main>

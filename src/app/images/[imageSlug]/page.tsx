@@ -1,8 +1,11 @@
-export default function PixabayImage({ params }: { params: { imageSlug: string }}) {
-  const { imageSlug } = params;
+export default function PixabayImagePage({ params }: { params: { imageSlug: string, query: string }}) {
+  const { imageSlug, query } = params;
 
   return (
-    <h2>{imageSlug}</h2>
+    <div>
+      <h2>{imageSlug}</h2>
+      {query}
+    </div>
   )
   
 }
