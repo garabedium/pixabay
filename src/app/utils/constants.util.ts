@@ -1,0 +1,1 @@
+export const homeHeader = "Pixabay Image Search" as const;

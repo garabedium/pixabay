@@ -13,7 +13,7 @@ You will have 3 hours to complete this challenge, and we ask that you complete i
 - [X] Install Next + UI Library
 - [X] UI: index view
 - [X] Data: create simple API poc
-- [ ] UI: detail view
+- [X] UI: detail view
     -- Link from index to detail
     -- Test
 - Search
@@ -29,10 +29,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
