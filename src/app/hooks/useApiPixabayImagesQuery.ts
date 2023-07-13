@@ -1,4 +1,6 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
+import debounce from 'lodash.debounce';
+
 import { 
   pixabayApiBase as apiBase,
   pixabayApiKey as apiKey,
@@ -23,10 +25,11 @@ function useApiPixabayImagesByQuery() {
 
   }, [imageQuery])  
 
-  const handleImageQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setQuery(value);
+  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
   }
+
+  const handleImageQuery = useMemo(() => debounce(handleQueryChange, 550), []);
 
   useEffect(() => {
     if (imageQuery.length){
@@ -34,7 +37,14 @@ function useApiPixabayImagesByQuery() {
     }
   }, [imageQuery, queryApi]);
 
-  return { imageQuery, imageResults, imageError, handleImageQuery }
+  // Cancel any scheduled calls on component unmount
+  useEffect(() => {
+    return () => {
+      handleImageQuery.cancel();
+    }
+  }, [handleImageQuery]);
+
+  return { imageResults, imageError, handleImageQuery }
 }
 
 export default useApiPixabayImagesByQuery;
