@@ -29,6 +29,7 @@ function useApiPixabayImagesByQuery() {
     setQuery(event.target.value);
   }
 
+  // Memo used to avoid calling debounce() on each re-render 
   const handleImageQuery = useMemo(() => debounce(handleQueryChange, 550), []);
 
   useEffect(() => {
