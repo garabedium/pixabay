@@ -21,7 +21,6 @@ export default function Home() {
         <input
           autoFocus
           type="search"
-          value={imageQuery}
           onChange={handleImageQuery}
           placeholder={searchLabel}
           aria-label={searchLabel}
