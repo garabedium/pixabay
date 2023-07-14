@@ -11,9 +11,11 @@
 - [ ] ENV var / API route
 - [ ] UI / logo
 - [X] Cleanup / Refactor
--- [X] Custom hook 
--- [ ] Debounce change event
-
+- [X] Custom hook 
+- [X] Debounce change event
+- [ ] Test mock, Faker
+- [X] Images, alignment
+- [ ] Default images (Server component)
 
 ## Getting Started
 

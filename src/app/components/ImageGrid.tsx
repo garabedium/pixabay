@@ -23,6 +23,7 @@ export default function ImageGrid(props: ImageGridProps) {
           alt={image.tags}
           width={image.previewWidth}
           height={image.previewHeight}
+          className={styles.imageGrid__img}
         />
       </Link>
     )

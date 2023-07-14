@@ -7,6 +7,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --max-width: 800px;
+  --image-grid-width: calc(var(--max-width) - 20px);
 }
 
 @media (prefers-color-scheme: dark) {
