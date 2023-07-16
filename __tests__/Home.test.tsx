@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { homeHeader } from '@/app/utils/constants.util';
-import Home from '@/app/page';
+import { homeHeader, searchLabel } from '@/utils/constants.util';
+import Home from '@/page';
 
 describe('Home', () => {
   it('renders a heading', () => {
@@ -11,5 +11,12 @@ describe('Home', () => {
     })
 
     expect(heading).toBeInTheDocument();
+  })
+
+  it('renders a search input', () => {
+    render(<Home />)
+
+    const input = screen.getByLabelText(searchLabel)
+    expect(input).toBeInTheDocument();
   })
 })

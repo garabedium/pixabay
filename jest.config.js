@@ -16,6 +16,9 @@ const customJestConfig = {
     },
     NODE_ENV: "test"
   },
+  testPathIgnorePatterns: [
+    './__tests__/utils/',
+  ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper

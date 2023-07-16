@@ -3,10 +3,11 @@ export interface BasePixabayApi {
   totalHits: number,
 }
 
+export type PixabayImageType = "all" | "photo" | "illustration" | "vector";
 export interface PixabayImage {
   id: number,
   pageURL: string,
-  type: string,
+  type: PixabayImageType,
   tags: string,
   previewURL: string,
   previewWidth: number,
