@@ -7,7 +7,7 @@ export const PixabayImageFactory = Factory.define<PixabayImage>(({ sequence }) =
   id: sequence,
   pageURL: faker.internet.url(),
   type: sample(["all","photo","illustration","vector"]) as PixabayImageType,
-  tags: `${faker.animal.dog()}, ${faker.color.human()}`,
+  tags: `${faker.animal.dog()}, ${faker.color.human()}, pixabayImageTag`,
   previewURL: faker.image.urlLoremFlickr({ width: 156, height: 156 }),
   previewWidth: faker.number.int(156),
   previewHeight: faker.number.int(156),
