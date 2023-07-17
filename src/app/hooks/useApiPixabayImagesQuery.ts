@@ -2,8 +2,7 @@ import { useState, useCallback, useEffect, useMemo } from "react";
 import debounce from 'lodash.debounce';
 
 import { 
-  pixabayApiBase as apiBase,
-  pixabayApiKey as apiKey,
+  apiClientRoutes as api,
   apiErrorText
  } from "@/utils/constants.util";
 
@@ -13,12 +12,12 @@ function useApiPixabayImagesByQuery() {
   const [imageError, setError] = useState('');
 
   const queryApi = useCallback(async() => {
-    const apiUrl = `${apiBase}${apiKey}&q=${imageQuery}`;
+    const apiUrl = `${api.baseUrl}${api.pixabayImages}?query=${imageQuery}`;
     const options = { method: 'GET' };
     try {
       const response = await fetch(apiUrl, options);
-      const { hits } = await response.json();
-      setResults(hits);
+      const { data } = await response.json();
+      setResults(data);
     } catch (error) {
       setError(apiErrorText)
     }

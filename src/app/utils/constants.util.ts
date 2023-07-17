@@ -3,4 +3,9 @@ export const apiErrorText = "Oops. That search failed." as const;
 export const searchLabel = "Search Pixabay images" as const;
 
 export const pixabayApiBase = "https://pixabay.com/api/" as const;
-export const pixabayApiKey = "?key=38176596-baeb4d9b88920483b6400bb56" as const;
+export const pixabayApiKey = `?key=${process.env.PIXABAY_API_KEY}` as const;
+
+export const apiClientRoutes = {
+  baseUrl: '/api',
+  pixabayImages: '/pixabay/images',
+} as const;
