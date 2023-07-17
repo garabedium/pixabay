@@ -8,14 +8,14 @@
 - [X] Data: create simple API poc
 - [X] UI: detail view
 - [X] Search
-- [ ] ENV var / API route
-- [ ] UI / logo
 - [X] Cleanup / Refactor
 - [X] Custom hook 
 - [X] Debounce change event
-- [ ] Test mock, Faker
+- [X] Faker
 - [X] Images, alignment
+- [ ] ENV var / API route
 - [ ] Default images (Server component)
+- [ ] Test mocks
 
 ## Getting Started
 
