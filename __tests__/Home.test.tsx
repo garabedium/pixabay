@@ -3,6 +3,8 @@ import { homeHeader, searchLabel } from '@/utils/constants.util';
 import Home from '@/page';
 
 describe('Home', () => {
+  const input = () => screen.getByLabelText(searchLabel);
+
   it('renders a heading', () => {
     render(<Home />)
 
@@ -13,10 +15,9 @@ describe('Home', () => {
     expect(heading).toBeInTheDocument();
   })
 
-  it('renders a search input', () => {
+  it('renders and focuses on a search input', () => {
     render(<Home />)
-
-    const input = screen.getByLabelText(searchLabel)
-    expect(input).toBeInTheDocument();
+    expect(input()).toBeInTheDocument();
+    expect(input()).toHaveFocus();
   })
 })
